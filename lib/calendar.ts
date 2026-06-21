@@ -39,7 +39,7 @@ export async function ensureGoogleAuthConfig(): Promise<string> {
 
 export async function initiateGoogleConnection(userId: string, callbackUrl: string) {
   const authConfigId = await ensureGoogleAuthConfig();
-  const req = await composio().connectedAccounts.initiate(userId, authConfigId, { callbackUrl });
+  const req = await composio().connectedAccounts.link(authConfigId, { userId, callbackUrl });
   // req.redirectUrl is string | null per SDK types; cast to string for redirect flow
   return { redirectUrl: req.redirectUrl as string, connectionId: req.id };
 }

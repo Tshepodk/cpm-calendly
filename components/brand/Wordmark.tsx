@@ -14,14 +14,14 @@ export function Wordmark({ size = 22, className, tone = "default" }: Props) {
       style={{ color, height: size }}
       aria-label="CPM CCPM Calendly"
     >
-      <Mark size={size} />
+      
       <span
         style={{
           fontWeight: 600,
           letterSpacing: "-0.04em",
           fontSize: Math.round(size * 0.86),
           lineHeight: 1,
-          marginLeft: -Math.round(size * 0.16),
+          marginLeft: 0,
         }}
       >
         CPM Calendly

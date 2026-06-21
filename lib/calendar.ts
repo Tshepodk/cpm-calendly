@@ -49,8 +49,9 @@ export async function initiateGoogleConnection(userId: string, callbackUrl: stri
     body: JSON.stringify({ auth_config_id: authConfigId, user_id: userId, callback_url: callbackUrl }),
   });
   if (!res.ok) throw new Error(await res.text());
-  const data = await res.json() as { redirect_url: string; id: string };
-  return { redirectUrl: data.redirect_url, connectionId: data.id };
+  const data = await res.json() as Record<string, unknown>;
+  console.log("[composio] link response:", JSON.stringify(data));
+  return { redirectUrl: data.redirect_url as string, connectionId: (data.id ?? data.connected_account_id ?? data.connectionId) as string };
 }
 
 export async function getConnection(connectionId: string) {

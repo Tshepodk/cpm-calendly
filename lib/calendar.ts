@@ -39,9 +39,18 @@ export async function ensureGoogleAuthConfig(): Promise<string> {
 
 export async function initiateGoogleConnection(userId: string, callbackUrl: string) {
   const authConfigId = await ensureGoogleAuthConfig();
-  const req = await composio().connectedAccounts.link(authConfigId, { userId, callbackUrl });
-  // req.redirectUrl is string | null per SDK types; cast to string for redirect flow
-  return { redirectUrl: req.redirectUrl as string, connectionId: req.id };
+  const { env } = await import("./env");
+  const res = await fetch("https://backend.composio.tech/api/v3/connected_accounts/link", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": env().COMPOSIO_API_KEY,
+    },
+    body: JSON.stringify({ auth_config_id: authConfigId, user_id: userId, callback_url: callbackUrl }),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  const data = await res.json() as { redirect_url: string; id: string };
+  return { redirectUrl: data.redirect_url, connectionId: data.id };
 }
 
 export async function getConnection(connectionId: string) {

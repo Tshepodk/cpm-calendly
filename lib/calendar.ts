@@ -40,7 +40,7 @@ export async function ensureGoogleAuthConfig(): Promise<string> {
 export async function initiateGoogleConnection(userId: string, callbackUrl: string) {
   const authConfigId = await ensureGoogleAuthConfig();
   const { env } = await import("./env");
-  const res = await fetch("https://backend.composio.tech/api/v3/connected_accounts/link", {
+  const res = await fetch("https://backend.composio.dev/api/v3/connected_accounts/link", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

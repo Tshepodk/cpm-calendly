@@ -63,7 +63,7 @@ export default async function SettingsPage() {
 
       <SettingsCard
         title="Appearance"
-        description="Choose how Kalendly looks to you. System matches your OS preference."
+        description="Choose how CPM Calendly looks to you. System matches your OS preference."
       >
         <AppearanceSection />
       </SettingsCard>

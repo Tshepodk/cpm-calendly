@@ -29,7 +29,7 @@ export function Sidebar({ name }: { name: string }) {
       <div className="border-b border-border px-5 py-6">
         <Link
           href="/dashboard"
-          aria-label="Kalendly home"
+          aria-label="CPM Calendly home"
           className="inline-flex items-center text-ink"
         >
           <Wordmark size={24} />

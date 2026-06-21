@@ -1,6 +1,6 @@
 {
-  "name": "Kalendly",
-  "short_name": "Kalendly",
+  "name": "CPM Calendly",
+  "short_name": "CPM Calendly",
   "icons": [
     { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
   ],

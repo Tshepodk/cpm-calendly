@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kalendly",
+  title: "CPM Calendly",
   description: "Schedule a meeting.",
   icons: { icon: "/icon.svg" },
   manifest: "/manifest.json",

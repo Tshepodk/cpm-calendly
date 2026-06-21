@@ -12,7 +12,7 @@ export interface CalendarSummary {
 }
 
 const GOOGLE_TOOLKIT = "googlecalendar";
-const AUTH_CONFIG_NAME = "Kalendly Google Calendar";
+const AUTH_CONFIG_NAME = "CPM Calendly Google Calendar";
 
 let cachedAuthConfigId: string | null = null;
 

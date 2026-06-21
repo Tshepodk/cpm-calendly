@@ -12,7 +12,7 @@ export function Wordmark({ size = 22, className, tone = "default" }: Props) {
     <span
       className={"inline-flex items-center leading-none " + (className ?? "")}
       style={{ color, height: size }}
-      aria-label="CPM Calendly"
+      aria-label="CPM CCPM Calendly"
     >
       <Mark size={size} />
       <span
@@ -24,7 +24,7 @@ export function Wordmark({ size = 22, className, tone = "default" }: Props) {
           marginLeft: -Math.round(size * 0.16),
         }}
       >
-        alendly
+        CPM Calendly
       </span>
     </span>
   );

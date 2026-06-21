@@ -1,0 +1,10 @@
+{
+  "name": "Kalendly",
+  "short_name": "Kalendly",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#5B2AB8",
+  "background_color": "#FAFAF7",
+  "display": "standalone"
+}

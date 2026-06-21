@@ -1,0 +1,250 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+ * Kalendly design tokens — Linear-style, light + dark
+ * Tokens defined as CSS variables on :root (light) with overrides under html.dark.
+ * @theme inline binds them to Tailwind utility names so bg-bg / text-ink / etc
+ * resolve to live values that flip with the theme.
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --bg:                  #FFFFFF;
+  --bg-elevated:         #FAFAFA;
+  --surface:             #FFFFFF;
+  --surface-hover:       #F5F4F8;
+  --border:              #ECEAF1;
+  --border-strong:       #DAD7E0;
+  --ink:                 #0E0E12;
+  --ink-soft:            #555160;
+  --ink-muted:           #8A8696;
+  --ink-faint:           #BAB6C2;
+
+  --primary:             #7C5CF6;
+  --primary-hover:       #6D49F2;
+  --primary-active:      #6646E7;
+  --primary-tint:        #F1ECFE;
+  --primary-foreground:  #FFFFFF;
+
+  --success:             #16A34A;
+  --danger:              #DC2626;
+  --warning:             #D97706;
+  --ring:                rgba(124, 92, 246, 0.32);
+
+  --event-iris:  #7C5CF6;
+  --event-rose:  #DB2777;
+  --event-amber: #D97706;
+  --event-sage:  #059669;
+  --event-slate: #475569;
+
+  --shadow-card-hover: 0 1px 2px rgba(15, 15, 20, 0.06);
+  --shadow-modal:      0 8px 32px rgba(0, 0, 0, 0.10);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-pill: 9999px;
+
+  /* shadcn-compat tokens (some primitives still reference these names) */
+  --background:          var(--bg);
+  --foreground:          var(--ink);
+  --card:                var(--surface);
+  --card-foreground:     var(--ink);
+  --popover:             var(--surface);
+  --popover-foreground:  var(--ink);
+  --secondary:           var(--surface-hover);
+  --secondary-foreground: var(--ink);
+  --muted:               var(--surface-hover);
+  --muted-foreground:    var(--ink-muted);
+  --accent:              var(--surface-hover);
+  --accent-foreground:   var(--ink);
+  --destructive:         var(--danger);
+  --input:               var(--border);
+  --radius:              0.5rem;
+  --sidebar:             var(--bg);
+  --sidebar-foreground:  var(--ink);
+  --sidebar-primary:     var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent:      var(--surface-hover);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border:      var(--border);
+  --sidebar-ring:        var(--ring);
+  --chart-1: var(--event-iris);
+  --chart-2: var(--event-rose);
+  --chart-3: var(--event-amber);
+  --chart-4: var(--event-sage);
+  --chart-5: var(--event-slate);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+}
+
+html.dark {
+  --bg:                  #0B0B0F;
+  --bg-elevated:         #111116;
+  --surface:             #15151B;
+  --surface-hover:       #1B1B22;
+  --border:              #1F1F26;
+  --border-strong:       #2A2A33;
+  --ink:                 #ECEAF1;
+  --ink-soft:            #B5B0C0;
+  --ink-muted:           #74708A;
+  --ink-faint:           #4A4759;
+
+  --primary:             #A88AFA;
+  --primary-hover:       #B9A0FC;
+  --primary-active:      #9676F5;
+  --primary-tint:        rgba(168, 138, 250, 0.14);
+  --primary-foreground:  #0B0B0F;
+
+  --success:             #4ADE80;
+  --danger:              #F87171;
+  --warning:             #FBBF24;
+  --ring:                rgba(168, 138, 250, 0.4);
+
+  --event-iris:  #A88AFA;
+  --event-rose:  #F472B6;
+  --event-amber: #FBBF24;
+  --event-sage:  #34D399;
+  --event-slate: #94A3B8;
+
+  --shadow-card-hover: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-modal:      0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Bind tokens to Tailwind utilities (bg-bg, text-ink, border-border, etc.) */
+@theme inline {
+  --color-bg:                 var(--bg);
+  --color-bg-elevated:        var(--bg-elevated);
+  --color-surface:            var(--surface);
+  --color-surface-hover:      var(--surface-hover);
+  --color-border:             var(--border);
+  --color-border-strong:      var(--border-strong);
+  --color-ink:                var(--ink);
+  --color-ink-soft:           var(--ink-soft);
+  --color-ink-muted:          var(--ink-muted);
+  --color-ink-faint:          var(--ink-faint);
+
+  --color-primary:            var(--primary);
+  --color-primary-hover:      var(--primary-hover);
+  --color-primary-active:     var(--primary-active);
+  --color-primary-tint:       var(--primary-tint);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-success:            var(--success);
+  --color-danger:             var(--danger);
+  --color-warning:            var(--warning);
+
+  --color-event-iris:         var(--event-iris);
+  --color-event-rose:         var(--event-rose);
+  --color-event-amber:        var(--event-amber);
+  --color-event-sage:         var(--event-sage);
+  --color-event-slate:        var(--event-slate);
+
+  /* shadcn-named bindings (preserve compatibility with installed primitives) */
+  --color-background:         var(--background);
+  --color-foreground:         var(--foreground);
+  --color-card:               var(--card);
+  --color-card-foreground:    var(--card-foreground);
+  --color-popover:            var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary:          var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:              var(--muted);
+  --color-muted-foreground:   var(--muted-foreground);
+  --color-accent:             var(--accent);
+  --color-accent-foreground:  var(--accent-foreground);
+  --color-destructive:        var(--destructive);
+  --color-input:              var(--input);
+  --color-ring:               var(--ring);
+  --color-sidebar:            var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary:    var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent:     var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:     var(--sidebar-border);
+  --color-sidebar-ring:       var(--sidebar-ring);
+  --color-chart-1:            var(--chart-1);
+  --color-chart-2:            var(--chart-2);
+  --color-chart-3:            var(--chart-3);
+  --color-chart-4:            var(--chart-4);
+  --color-chart-5:            var(--chart-5);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ---------------------------------------------------------------------------
+ * Base styles
+ * ------------------------------------------------------------------------- */
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.003em;
+}
+
+html {
+  transition: background-color 180ms ease-out, color 180ms ease-out;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+h1 { letter-spacing: -0.03em; }
+h2 { letter-spacing: -0.02em; }
+h3 { letter-spacing: -0.015em; }
+
+.font-sans { font-family: var(--font-sans); }
+.font-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.tabular   { font-variant-numeric: tabular-nums; }
+
+/* Custom scrollbar — Linear-subtle */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 9999px; border: 2px solid transparent; background-clip: content-box; }
+*::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); border: 2px solid transparent; background-clip: content-box; }
+
+::selection { background: var(--primary-tint); color: var(--primary); }
+
+/* ---------------------------------------------------------------------------
+ * Motion
+ * ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 320ms ease-out both; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in { animation: fadeIn 180ms ease-out both; }
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+  }
+}

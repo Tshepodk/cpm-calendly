@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Kalendly" fill="currentColor">
+  <rect x="4.5" y="3.5" width="3" height="17" rx="0.5"/>
+  <path d="M7.5 12 L18.5 3.5 L20.5 5.2 L9.5 13.5 Z"/>
+  <path d="M7.5 11 L9.5 11 L20.5 19.3 L18.5 21 Z"/>
+</svg>
